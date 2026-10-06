@@ -1,1 +1,7 @@
 /Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/SecurehubApplication.java
+/Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/config/SecurityConfig.java
+/Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/controller/AuthController.java
+/Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/dto/RegisterRequest.java
+/Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/entity/User.java
+/Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/repository/UserRepository.java
+/Users/parulgupta/Desktop/interview prep/Project/securehub-spring-security/src/main/java/com/securehub/securehub/service/UserService.java
