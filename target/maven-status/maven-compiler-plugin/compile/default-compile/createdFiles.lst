@@ -1,7 +1,10 @@
 com/securehub/securehub/dto/RegisterRequest.class
-com/securehub/securehub/entity/User.class
-com/securehub/securehub/SecurehubApplication.class
-com/securehub/securehub/service/UserService.class
-com/securehub/securehub/repository/UserRepository.class
+com/securehub/securehub/service/CustomUserDetailsService.class
 com/securehub/securehub/config/SecurityConfig.class
 com/securehub/securehub/controller/AuthController.class
+com/securehub/securehub/dto/LoginRequest.class
+com/securehub/securehub/entity/User.class
+com/securehub/securehub/SecurehubApplication.class
+com/securehub/securehub/controller/UserController.class
+com/securehub/securehub/service/UserService.class
+com/securehub/securehub/repository/UserRepository.class
