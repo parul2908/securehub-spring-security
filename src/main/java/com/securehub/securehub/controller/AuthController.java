@@ -1,5 +1,6 @@
 package com.securehub.securehub.controller;
 
+import com.securehub.securehub.security.JwtService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +15,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.context.SecurityContextRepository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,15 +26,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 @RequestMapping("/api/auth")
 public class AuthController {
 
+    private final JwtService jwtService;
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
-    private final SecurityContextRepository securityContextRepository;
 
-    public AuthController(UserService userService, AuthenticationManager authenticationManager,
-            SecurityContextRepository securityContextRepository) {
+    public AuthController(UserService userService, AuthenticationManager authenticationManager, JwtService jwtService) {
         this.userService = userService;
         this.authenticationManager = authenticationManager;
-        this.securityContextRepository = securityContextRepository;
+        this.jwtService = jwtService;
     }
 
     @PostMapping("/register")
@@ -53,14 +50,9 @@ public class AuthController {
                 new UsernamePasswordAuthenticationToken(
                         request.username(),
                         request.password()));
-        SecurityContext context = SecurityContextHolder.createEmptyContext();
-        context.setAuthentication(authentication);
 
-        securityContextRepository.saveContext(
-                context,
-                httpRequest,
-                httpResponse);
+        String token = jwtService.generateTokens(authentication.getName());
 
-        return "Login successful for " + authentication.getName();
+        return token;
     }
 }
